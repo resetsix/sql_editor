@@ -1,0 +1,111 @@
+{
+	"data": {
+		"id": 0,
+		"name": "MySQL_Data",
+		"fileType": "RootFolder",
+		"location": "root",
+		"isLeaf": false,
+		"code": 200,
+		"message": "success",
+		"data": "",
+		"children": [
+			{
+				"id": 1,
+				"name": "test.js",
+				"location": "root/test.js",
+				"fileType": "File",
+				"isLeaf": true,
+				"data": {
+					"language": "javascript",
+					"value": "console.log('Hello World');"
+				}
+			},
+			{
+				"id": 2,
+				"name": "test.css",
+				"fileType": "File",
+				"location": "root/test.css",
+				"isLeaf": true,
+				"data": {
+					"language": "css",
+					"value": "mo { background-color: var(--workbenchBackground); color: var(--foreground); }"
+				}
+			},
+			{
+				"id": 3,
+				"name": "index.html",
+				"fileType": "File",
+				"location": "root/index.html",
+				"isLeaf": true,
+				"data": {
+					"language": "html",
+					"value": "<div id=\"molecule\">Hello Molecule</div>"
+				}
+			},
+			{
+				"id": 4,
+				"name": "test.json",
+				"fileType": "File",
+				"location": "root/test.json",
+				"isLeaf": true,
+				"data": {
+					"language": "json",
+					"value": "{ \"language\": \"json\", \"value\": \"{}\" }"
+				}
+			},
+			{
+				"id": 5,
+				"name": "Sub Folder",
+				"isLeaf": false,
+				"fileType": "Folder",
+				"location": "root/Sub Folder",
+				"children": [
+					{
+						"id": 11,
+						"name": "test.js",
+						"fileType": "File",
+						"location": "root/Sub Folder/test.js",
+						"isLeaf": true,
+						"data": {
+							"language": "javascript",
+							"value": "console.log('Hello World');"
+						}
+					},
+					{
+						"id": 12,
+						"name": "test.css",
+						"location": "root/Sub Folder/test.css",
+						"isLeaf": true,
+						"fileType": "File",
+						"data": {
+							"language": "css",
+							"value": "mo { background-color: var(--workbenchBackground); color: var(--foreground); }"
+						}
+					},
+					{
+						"id": 13,
+						"name": "index.html",
+						"location": "root/Sub Folder/index.html",
+						"isLeaf": true,
+						"fileType": "File",
+						"data": {
+							"language": "html",
+							"value": "<div id=\"molecule\">Hello Molecule</div>"
+						}
+					},
+					{
+						"id": 14,
+						"name": "test.json",
+						"location": "root/Sub Folder/test.json",
+						"isLeaf": true,
+						"fileType": "File",
+						"data": {
+							"language": "json",
+							"value": "{ \"language\": \"json\", \"value\": \"{}\" }"
+						}
+					}
+				]
+			}
+		]
+	}
+}
