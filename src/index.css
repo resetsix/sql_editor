@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* 优化antd组件过渡效果 */
+.mo-sidebar__pane *[class^="ant-"] {
+  /* transition: none !important; */
+  transition: all 0.01ms !important;
+}
+
+/* 解决activityBar图标点击不灵敏。原因：有一个 ScrollBar挡住了，将其禁用鼠标事件即可 */
+.mo-scrollBar__track--hidden {
+  pointer-events: none;
+}
