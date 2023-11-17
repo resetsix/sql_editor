@@ -13,7 +13,7 @@ import { DTTree } from "../../components/Tree";
 
 const { Text } = Typography;
 
-export const MyDataDevPanel = () => {
+export const DataDevPanel = () => {
 	return (
 		<Flex vertical gap="small" style={{ margin: "10px" }}>
 			<Flex justify="space-between" align="middle">
@@ -38,9 +38,6 @@ export const MyDataDevPanel = () => {
 						<Button type="text" shape="circle" icon={<MenuUnfoldOutlined />} />
 					</Flex>
 					<Flex justify="space-between">
-						{/* <Button type="text" icon={<ProfileOutlined />}>
-							任务开发
-						</Button> */}
 						<Space>
 							<ProfileOutlined />
 							<Text>任务开发</Text>
