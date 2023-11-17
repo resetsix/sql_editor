@@ -3,6 +3,9 @@
 	"version": "0.0.0",
 	"private": true,
 	"dependencies": {
+		"@ant-design/icons": "^5.2.6",
+		"@babel/core": "^7.23.3",
+		"@babel/preset-env": "^7.23.3",
 		"@babel/preset-react": "^7.23.3",
 		"@dtinsight/molecule": "^1.3.0",
 		"@emotion/babel-plugin": "^11.11.0",
@@ -16,7 +19,6 @@
 		"@types/react": "^18.0.0",
 		"@types/react-dom": "^18.0.0",
 		"antd": "^5.11.1",
-		"babel-core": "^6.26.3",
 		"concurrently": "^8.2.2",
 		"lodash": "^4.17.21",
 		"monaco-editor-webpack-plugin": "^7.1.0",
