@@ -45,7 +45,7 @@ export const TasktemplatePanel = () => {
 						</Space>
 						<Space size={0}>
 							<MenuDropdown />
-							<RefreshButton />
+							<RefreshButton key="task" />
 						</Space>
 					</Flex>
 				</Flex>

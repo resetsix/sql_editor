@@ -44,7 +44,7 @@ export const DataDevPanel = () => {
 						</Space>
 						<Space size={0}>
 							<MenuDropdown />
-							<RefreshButton />
+							<RefreshButton key="data_dev" />
 						</Space>
 					</Flex>
 				</Flex>

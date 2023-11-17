@@ -1,5 +1,5 @@
 import NiceModal from "@ebay/nice-modal-react";
-import { ConfigProvider, theme } from "antd";
+import { ConfigProvider, App as MessageApp, theme } from "antd";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
@@ -22,7 +22,9 @@ root.render(
 			}}
 		>
 			<NiceModal.Provider>
-				<App />
+				<MessageApp>
+					<App />
+				</MessageApp>
 			</NiceModal.Provider>
 		</ConfigProvider>
 	</React.StrictMode>
