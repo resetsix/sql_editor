@@ -1,15 +1,15 @@
 import {
 	MenuUnfoldOutlined,
-	MoreOutlined,
 	PlusOutlined,
 	SearchOutlined,
 	SnippetsOutlined,
-	UndoOutlined,
 } from "@ant-design/icons";
 import { Content } from "@dtinsight/molecule/esm/workbench/sidebar";
 import NiceModal from "@ebay/nice-modal-react";
 import { useMount } from "ahooks";
-import { Button, Checkbox, Flex, Input, Space, Typography } from "antd";
+import { Button, Checkbox, Flex, Input, Row, Space, Typography } from "antd";
+import { RefreshButton } from "../../components/Buttons/RefreshButton";
+import { MenuDropdown } from "../../components/MenuDropdown";
 import { TaskTemplateModal } from "../../components/modals/TaskTemplateModal";
 
 const { Text } = Typography;
@@ -19,7 +19,7 @@ export const TasktemplatePanel = () => {
 
 	return (
 		<Flex vertical gap="small" style={{ margin: "10px" }}>
-			<Flex justify="space-between" align="middle">
+			<Row justify="space-between" align="middle">
 				<Text>任务模板</Text>
 				<Space size={0}>
 					<Checkbox>我的</Checkbox>
@@ -31,7 +31,7 @@ export const TasktemplatePanel = () => {
 						onClick={() => NiceModal.show("taskTemplateModal")}
 					/>
 				</Space>
-			</Flex>
+			</Row>
 			<Content>
 				<Flex vertical gap="small">
 					<Flex justify="space-between">
@@ -44,8 +44,8 @@ export const TasktemplatePanel = () => {
 							<Text>任务模板</Text>
 						</Space>
 						<Space size={0}>
-							<Button type="text" shape="circle" icon={<MoreOutlined />} />
-							<Button type="text" shape="circle" icon={<UndoOutlined />} />
+							<MenuDropdown />
+							<RefreshButton />
 						</Space>
 					</Flex>
 				</Flex>

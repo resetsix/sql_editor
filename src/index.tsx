@@ -1,5 +1,5 @@
 import NiceModal from "@ebay/nice-modal-react";
-import { ConfigProvider } from "antd";
+import { ConfigProvider, theme } from "antd";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
@@ -13,6 +13,7 @@ root.render(
 	<React.StrictMode>
 		<ConfigProvider
 			theme={{
+				algorithm: theme.darkAlgorithm,
 				components: {
 					Modal: {
 						wireframe: true,

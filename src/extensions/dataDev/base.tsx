@@ -14,9 +14,7 @@ const dataDevActivityBar: IActivityBarItem = {
 const dataDevSiderPanel: ISidebarPane = {
 	id: DataDev_ID,
 	title: "数据开发",
-	render: () => {
-		return <DataDevPanel />;
-	},
+	render: () => <DataDevPanel />,
 };
 
 export { DataDev_ID, dataDevActivityBar, dataDevSiderPanel };

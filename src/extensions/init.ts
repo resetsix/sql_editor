@@ -10,7 +10,7 @@ export class InitSomethingExtension implements IExtension {
 
     activate(extensionCtx: IExtensionService): void {
         // 初始化主题
-        molecule.colorTheme.setTheme("GitHub Plus");
+        // molecule.colorTheme.setTheme("GitHub Plus");
 
         // 默认选中的 活动栏Item
         molecule.activityBar.setActive(TASKTEMPALTE_ID);
