@@ -1,5 +1,6 @@
 import { IExtension } from "@dtinsight/molecule/esm/model";
 import { DataDevExtension } from "./dataDev";
+import { FunctionLibExtension } from "./functionLib";
 import { InitSomethingExtension } from "./init";
 import { MetaDataExtension } from "./metaData";
 import { ResourceLibExtension } from "./resourceLib";
@@ -13,6 +14,7 @@ const extensions: IExtension[] = [
     new TaskTemplateExtension(),
     new TemporaryQueryExtension(),
     new ResourceLibExtension(),
+    new FunctionLibExtension(),
     new MetaDataExtension(),
     new InitSomethingExtension(),
 ]

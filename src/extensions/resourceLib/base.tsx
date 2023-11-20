@@ -1,5 +1,5 @@
 import { IActivityBarItem, ISidebarPane } from "@dtinsight/molecule/esm/model";
-import { ResourceLibPanelPanel } from "../../pages/ResourceLibPanel";
+import { ResourceLibPanel } from "../../pages/ResourceLibPanel";
 
 const RESOURCELIB_ID = "resourceLib";
 
@@ -15,7 +15,7 @@ const ResourceLibSiderPanel: ISidebarPane = {
 	id: RESOURCELIB_ID,
 	title: "资源库",
 	render: () => {
-		return <ResourceLibPanelPanel />;
+		return <ResourceLibPanel />;
 	},
 };
 

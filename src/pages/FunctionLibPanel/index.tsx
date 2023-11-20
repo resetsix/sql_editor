@@ -1,8 +1,4 @@
-import {
-	OrderedListOutlined,
-	PlusOutlined,
-	SearchOutlined,
-} from "@ant-design/icons";
+import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { Content } from "@dtinsight/molecule/esm/workbench/sidebar";
 import {
 	Button,
@@ -14,16 +10,14 @@ import {
 	Space,
 	Typography,
 } from "antd";
-import { RefreshButton } from "../../components/Buttons/RefreshButton";
-import { MenuDropdown } from "../../components/MenuDropdown";
 
 const { Text } = Typography;
 
-export const ResourceLibPanel = () => {
+export const FunctionLibPanel = () => {
 	return (
 		<Flex vertical gap="small" style={{ margin: "10px" }}>
 			<Row justify="space-between" align="middle">
-				<Text>资源库</Text>
+				<Text>函数库</Text>
 				<Space size={0}>
 					<Checkbox>我的</Checkbox>
 					<Button
@@ -40,17 +34,7 @@ export const ResourceLibPanel = () => {
 						defaultValue="default"
 						options={[{ label: "default", value: "default" }]}
 					/>
-					<Input prefix={<SearchOutlined />} placeholder="资源名称/责任人" />
-					<Flex justify="space-between">
-						<Space>
-							<OrderedListOutlined />
-							<Text>资源列表</Text>
-						</Space>
-						<Space size={0}>
-							<MenuDropdown />
-							<RefreshButton key="task" />
-						</Space>
-					</Flex>
+					<Input prefix={<SearchOutlined />} placeholder="请输入搜索关键词" />
 				</Flex>
 			</Content>
 		</Flex>
