@@ -4,7 +4,7 @@ import { IExtension } from "@dtinsight/molecule/esm/model";
 import { IExtensionService } from "@dtinsight/molecule/esm/services";
 import { Button } from "antd";
 import { CONSOLE, OPERATIONS } from "../constant";
-import { MetaData_ID } from "./metaData/base";
+import { RESOURCELIB_ID } from "./resourceLib/base";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const initMenuBarback = () => {
@@ -48,9 +48,9 @@ const initTheme = () => {
 
 const initActive = () => {
 	// 默认选中的ActivityBar选项
-	molecule.activityBar.setActive(MetaData_ID);
+	molecule.activityBar.setActive(RESOURCELIB_ID);
 	// 默认选中的Siderbar选项
-	molecule.sidebar.setActive(MetaData_ID);
+	molecule.sidebar.setActive(RESOURCELIB_ID);
 };
 
 const initMenuBar = () => {
