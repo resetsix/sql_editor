@@ -8,6 +8,7 @@ const moInstance = create({
 
 moInstance.onBeforeInit(() => {
 	molecule.builtin.inactiveModule("builtInExplorerActivityItem"); // 隐藏内置的资源管理器
+	molecule.builtin.inactiveModule("builtInSearchActivityItem"); // 隐藏内置的搜索
 });
 
 const App = () => moInstance.render(<Workbench />);
