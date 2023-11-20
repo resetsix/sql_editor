@@ -6,6 +6,7 @@ import { MetaDataExtension } from "./metaData";
 import { ResourceLibExtension } from "./resourceLib";
 import { TaskTemplateExtension } from "./taskTemplate";
 import { TemporaryQueryExtension } from "./temporaryQuery";
+import { RecycleBinExtension } from "./recycleBin";
 
 // 所有extendsion的入口集合
 const extensions: IExtension[] = [
@@ -15,6 +16,7 @@ const extensions: IExtension[] = [
     new TemporaryQueryExtension(),
     new ResourceLibExtension(),
     new FunctionLibExtension(),
+    new RecycleBinExtension(),
     new MetaDataExtension(),
     new InitSomethingExtension(),
 ]
