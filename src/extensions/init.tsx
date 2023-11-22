@@ -4,7 +4,7 @@ import { IExtension } from "@dtinsight/molecule/esm/model";
 import { IExtensionService } from "@dtinsight/molecule/esm/services";
 import { Button } from "antd";
 import { CONSOLE, OPERATIONS } from "../constant";
-import { FUNCTIONLIB_ID } from "./functionLib/base";
+import { More_ID } from "./more/base";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const initMenuBarback = () => {
@@ -48,9 +48,9 @@ const initTheme = () => {
 
 const initActive = () => {
 	// 默认选中的ActivityBar选项
-	molecule.activityBar.setActive(FUNCTIONLIB_ID);
+	molecule.activityBar.setActive(More_ID);
 	// 默认选中的Siderbar选项
-	molecule.sidebar.setActive(FUNCTIONLIB_ID);
+	molecule.sidebar.setActive(More_ID);
 };
 
 const initMenuBar = () => {
@@ -60,9 +60,12 @@ const initMenuBar = () => {
 	// 重置默认数据
 	molecule.menuBar.setMenus([]);
 	// TODO 菜单栏 运维中心的图标在左边，应该设置到右边。
+
+	molecule.menuBar.render();
 	molecule.menuBar.setState({
 		logo: <Button type="link">Logo</Button>,
 		data: [
+			{ id: "全部", name: "全部" },
 			{ id: "数据开发", name: "数据开发" },
 			{ id: "任务开发", name: "任务开发" },
 			{ id: "发布中心", name: "发布中心" },
@@ -80,9 +83,15 @@ const initMenuBar = () => {
 					},
 				],
 			},
-			{ id: "地区", name: "地区" },
-			{ id: "项目", name: "项目" },
+			{ id: "地区", name: "选择地区" },
+			{ id: "项目", name: "选择项目" },
 		],
+	});
+	molecule.menuBar.onSelect((record) => {
+		(record === "地区" || record === "项目") &&
+			molecule.activityBar.setActive(More_ID);
+		(record === "地区" || record === "项目") &&
+			molecule.sidebar.setActive(More_ID);
 	});
 };
 
