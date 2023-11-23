@@ -1,9 +1,9 @@
 import { AppleOutlined, SearchOutlined } from "@ant-design/icons";
-import { Content } from "@dtinsight/molecule/esm/workbench/sidebar";
 import {
 	Button,
 	Checkbox,
 	Col,
+	Divider,
 	Drawer,
 	Flex,
 	Input,
@@ -15,18 +15,19 @@ import {
 	Typography,
 } from "antd";
 import { useState } from "react";
+import { MenuCard } from "../../components/Cards/MenuCard";
 
 const { Text } = Typography;
 
 type MenuItem = Required<MenuProps>["items"][number];
 
-function getItem(
+const getItem = (
 	label: React.ReactNode,
 	key: React.Key,
 	icon?: React.ReactNode,
 	children?: MenuItem[],
 	type?: "group"
-): MenuItem {
+): MenuItem => {
 	return {
 		key,
 		icon,
@@ -34,7 +35,7 @@ function getItem(
 		label,
 		type,
 	} as MenuItem;
-}
+};
 
 export const MorePanel = () => {
 	const [open, setOpen] = useState(false);
@@ -71,13 +72,13 @@ export const MorePanel = () => {
 		),
 	];
 	return (
-		<Flex vertical gap="small" style={{ margin: "10px" }}>
-			<Row justify="space-between" align="middle">
-				<Text>更多</Text>
-			</Row>
-			<Content>
+		<>
+			<Flex vertical gap="small" style={{ margin: "10px" }}>
+				<Row justify="space-between" align="middle">
+					<Text>更多</Text>
+				</Row>
 				<Flex vertical gap="small">
-					<Button type="primary" onClick={showDrawer}>
+					<Button type="primary" shape="round" onClick={showDrawer}>
 						全部菜单
 					</Button>
 					<Input placeholder="输入搜索数据表" prefix={<SearchOutlined />} />
@@ -114,36 +115,105 @@ export const MorePanel = () => {
 						)}
 					/>
 				</Flex>
-			</Content>
+			</Flex>
+
 			<Drawer
-				size="large"
+				height="85vh"
 				title="DataWeave 全部产品"
 				placement="bottom"
 				onClose={onClose}
 				open={open}
 			>
-				<Row>
+				<Row gutter={24}>
 					<Col span={4}>
 						<Menu
 							onClick={onClick}
-							style={{ width: 256 }}
+							// style={{ width: 256 }}
 							mode="inline"
 							items={items}
 						/>
 					</Col>
 					<Col span={20}>
-						<Flex justify="space-between">
+						<Row justify="space-between">
 							<Space>
 								<Text>LOGO</Text>
 								<Button type="link">前往租户控制台</Button>
 							</Space>
 							<Input style={{ width: 200 }} placeholder="输入关键词搜索" />
-						</Flex>
-						<Row>123</Row>
-						<Row>123</Row>
+						</Row>
+
+						<Row gutter={36}>
+							<Col span={6}>
+								<Text>数据研发</Text>
+								<Divider />
+								<Space direction="vertical" size={16}>
+									<MenuCard
+										title="数据开发"
+										description="一体化集成批式、流式数据开发能力，提供一站式全链路研发体验。"
+									/>
+									<MenuCard
+										title="数据服务"
+										description="提供API创建、发布、共享、管理和运维的全生命周期管理能力，统一数据服务出口，实现数据应用价值最大化"
+									/>
+								</Space>
+							</Col>
+							<Col span={6}>
+								<Text>数据资产</Text>
+								<Divider />
+								<Space direction="vertical" size={16}>
+									<MenuCard
+										title="数据地图"
+										description="收集和展示全链路元数据，帮助数据消费者解决找、理解、应用数据难的痛点，提升数据价值。"
+									/>
+									<MenuCard
+										title="指标平台"
+										description="集成指标管理，指标计算，指标应用，解决指标定义、生产、出口的一致性问题。"
+									/>
+								</Space>
+							</Col>
+							<Col span={6}>
+								<Text>数据治理</Text>
+								<Divider />
+								<Space direction="vertical" size={16}>
+									<MenuCard
+										title="治理门户"
+										description="一站式的数据治理产品解决方案，覆盖规划-执行-反馈全生命周期的治理流程"
+									/>
+									<MenuCard
+										title="数据安全"
+										description="数据权限的控制、风险与审计、数据保护，全方位保障大数据资产安全。"
+									/>
+									<MenuCard
+										title="数据质量"
+										description="提供数据探查、数据监控与数据对比能力，保障数据质量。"
+									/>
+								</Space>
+							</Col>
+							<Col span={6}>
+								<Text>数据治理</Text>
+								<Divider />
+								<Space direction="vertical" size={16}>
+									<MenuCard
+										title="SLA治理"
+										description="提供SLA在线化申报与签署，并通过多种治理保障措施，协同提高全链路数据质量。"
+									/>
+								</Space>
+							</Col>
+						</Row>
+
+						<Text>通用</Text>
+						<Divider />
+						<Row gutter={36}>
+							<Col span={6}>
+								<MenuCard
+									title="值班管理"
+									// description="一体化集成批式、流式数据开发能力，提供一站式全链路研发体验。"
+								/>
+							</Col>
+						</Row>
 					</Col>
 				</Row>
 			</Drawer>
-		</Flex>
+		</>
 	);
 };

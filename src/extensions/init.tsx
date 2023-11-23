@@ -65,7 +65,7 @@ const initMenuBar = () => {
 	molecule.menuBar.setState({
 		logo: <Button type="link">Logo</Button>,
 		data: [
-			{ id: "全部", name: "全部" },
+			{ id: "全部产品", name: "全部产品" },
 			{ id: "数据开发", name: "数据开发" },
 			{ id: "任务开发", name: "任务开发" },
 			{ id: "发布中心", name: "发布中心" },
@@ -88,9 +88,9 @@ const initMenuBar = () => {
 		],
 	});
 	molecule.menuBar.onSelect((record) => {
-		(record === "地区" || record === "项目") &&
+		(record === "地区" || record === "项目" || record === "全部产品") &&
 			molecule.activityBar.setActive(More_ID);
-		(record === "地区" || record === "项目") &&
+		(record === "地区" || record === "项目" || record === "全部产品") &&
 			molecule.sidebar.setActive(More_ID);
 	});
 };
