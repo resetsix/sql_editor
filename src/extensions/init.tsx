@@ -4,6 +4,7 @@ import { IExtension } from "@dtinsight/molecule/esm/model";
 import { IExtensionService } from "@dtinsight/molecule/esm/services";
 import { Button } from "antd";
 import { CONSOLE, OPERATIONS } from "../constant";
+import { DataDev_ID } from "./dataDev/base";
 import { More_ID } from "./more/base";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -48,9 +49,9 @@ const initTheme = () => {
 
 const initActive = () => {
 	// 默认选中的ActivityBar选项
-	molecule.activityBar.setActive(More_ID);
+	molecule.activityBar.setActive(DataDev_ID);
 	// 默认选中的Siderbar选项
-	molecule.sidebar.setActive(More_ID);
+	molecule.sidebar.setActive(DataDev_ID);
 };
 
 const initMenuBar = () => {

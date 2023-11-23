@@ -5,7 +5,6 @@ import {
 	RightSquareOutlined,
 	SearchOutlined,
 } from "@ant-design/icons";
-import { Content } from "@dtinsight/molecule/esm/workbench/sidebar";
 import { Button, Checkbox, Flex, Input, Row, Space, Typography } from "antd";
 import { RefreshButton } from "../../components/Buttons/RefreshButton";
 import { MenuDropdown } from "../../components/MenuDropdown";
@@ -15,20 +14,20 @@ const { Text } = Typography;
 
 export const DataDevPanel = () => {
 	return (
-		<Flex vertical gap="small" style={{ margin: "10px" }}>
-			<Row justify="space-between" align="middle">
-				<Text>数据开发</Text>
-				<Space size={0}>
-					<Checkbox>我的</Checkbox>
-					<Button
-						type="text"
-						shape="circle"
-						icon={<RightSquareOutlined />}
-						style={{ padding: 0 }}
-					/>
-				</Space>
-			</Row>
-			<Content>
+		<>
+			<Flex vertical gap="small" style={{ margin: "0 10px 0" }}>
+				<Row justify="space-between" align="middle">
+					<Text>数据开发</Text>
+					<Space size={0}>
+						<Checkbox>我的</Checkbox>
+						<Button
+							type="text"
+							shape="circle"
+							icon={<RightSquareOutlined />}
+							style={{ padding: 0 }}
+						/>
+					</Space>
+				</Row>
 				<Flex vertical gap="small">
 					<Button type="primary" shape="round" icon={<PlusOutlined />}>
 						新建任务
@@ -48,8 +47,8 @@ export const DataDevPanel = () => {
 						</Space>
 					</Flex>
 				</Flex>
-				<DTTree />
-			</Content>
-		</Flex>
+			</Flex>
+			<DTTree />
+		</>
 	);
 };
