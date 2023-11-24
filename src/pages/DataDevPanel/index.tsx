@@ -15,17 +15,12 @@ const { Text } = Typography;
 export const DataDevPanel = () => {
 	return (
 		<>
-			<Flex vertical gap="small" style={{ margin: "0 10px 0" }}>
+			<Flex vertical gap="small" style={{ margin: "10px" }}>
 				<Row justify="space-between" align="middle">
 					<Text>数据开发</Text>
 					<Space size={0}>
 						<Checkbox>我的</Checkbox>
-						<Button
-							type="text"
-							shape="circle"
-							icon={<RightSquareOutlined />}
-							style={{ padding: 0 }}
-						/>
+						<RightSquareOutlined />
 					</Space>
 				</Row>
 				<Flex vertical gap="small">

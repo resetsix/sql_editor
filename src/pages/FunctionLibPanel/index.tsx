@@ -1,15 +1,6 @@
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { Content } from "@dtinsight/molecule/esm/workbench/sidebar";
-import {
-	Button,
-	Checkbox,
-	Flex,
-	Input,
-	Row,
-	Select,
-	Space,
-	Typography,
-} from "antd";
+import { Checkbox, Flex, Input, Row, Select, Space, Typography } from "antd";
 
 const { Text } = Typography;
 
@@ -20,12 +11,7 @@ export const FunctionLibPanel = () => {
 				<Text>函数库</Text>
 				<Space size={0}>
 					<Checkbox>我的</Checkbox>
-					<Button
-						type="text"
-						shape="circle"
-						icon={<PlusOutlined />}
-						style={{ padding: 0 }}
-					/>
+					<PlusOutlined />
 				</Space>
 			</Row>
 			<Content>

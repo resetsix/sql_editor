@@ -1,4 +1,5 @@
 import { AppleOutlined } from "@ant-design/icons";
+import styled from "@emotion/styled";
 import {
 	Button,
 	Col,
@@ -54,6 +55,10 @@ const items: MenuProps["items"] = [
 	),
 ];
 
+const SmallMarginDivider = styled(Divider)`
+	margin: 12px 0;
+`;
+
 export const MenuDrawer = ({ onClose, open, onClick }: any) => {
 	return (
 		<Drawer
@@ -84,7 +89,7 @@ export const MenuDrawer = ({ onClose, open, onClick }: any) => {
 					<Row gutter={36}>
 						<Col span={6}>
 							<Text>数据研发</Text>
-							<Divider />
+							<SmallMarginDivider />
 							<Space direction="vertical" size={16}>
 								<MenuCard
 									title="数据开发"
@@ -98,7 +103,7 @@ export const MenuDrawer = ({ onClose, open, onClick }: any) => {
 						</Col>
 						<Col span={6}>
 							<Text>数据资产</Text>
-							<Divider />
+							<SmallMarginDivider />
 							<Space direction="vertical" size={16}>
 								<MenuCard
 									title="数据地图"
@@ -112,7 +117,7 @@ export const MenuDrawer = ({ onClose, open, onClick }: any) => {
 						</Col>
 						<Col span={6}>
 							<Text>数据治理</Text>
-							<Divider />
+							<SmallMarginDivider />
 							<Space direction="vertical" size={16}>
 								<MenuCard
 									title="治理门户"
@@ -130,7 +135,7 @@ export const MenuDrawer = ({ onClose, open, onClick }: any) => {
 						</Col>
 						<Col span={6}>
 							<Text>数据治理</Text>
-							<Divider />
+							<SmallMarginDivider />
 							<Space direction="vertical" size={16}>
 								<MenuCard
 									title="SLA治理"
@@ -141,7 +146,7 @@ export const MenuDrawer = ({ onClose, open, onClick }: any) => {
 					</Row>
 
 					<Text>通用</Text>
-					<Divider />
+					<SmallMarginDivider />
 					<Row gutter={36}>
 						<Col span={6}>
 							<MenuCard title="值班管理" />

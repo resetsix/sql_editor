@@ -4,7 +4,6 @@ import {
 	SearchOutlined,
 	SnippetsOutlined,
 } from "@ant-design/icons";
-import { Content } from "@dtinsight/molecule/esm/workbench/sidebar";
 import NiceModal from "@ebay/nice-modal-react";
 import { useMount } from "ahooks";
 import { Button, Checkbox, Flex, Input, Row, Space, Typography } from "antd";
@@ -23,33 +22,25 @@ export const TasktemplatePanel = () => {
 				<Text>任务模板</Text>
 				<Space size={0}>
 					<Checkbox>我的</Checkbox>
-					<Button
-						type="text"
-						shape="circle"
-						icon={<PlusOutlined />}
-						style={{ padding: 0 }}
-						onClick={() => NiceModal.show("taskTemplateModal")}
-					/>
+					<PlusOutlined onClick={() => NiceModal.show("taskTemplateModal")} />
 				</Space>
 			</Row>
-			<Content>
-				<Flex vertical gap="small">
-					<Flex justify="space-between">
-						<Input prefix={<SearchOutlined />} placeholder="请输入名称" />
-						<Button type="text" shape="circle" icon={<MenuUnfoldOutlined />} />
-					</Flex>
-					<Flex justify="space-between">
-						<Space>
-							<SnippetsOutlined />
-							<Text>任务模板</Text>
-						</Space>
-						<Space size={0}>
-							<MenuDropdown />
-							<RefreshButton key="task" />
-						</Space>
-					</Flex>
+			<Flex vertical gap="small">
+				<Flex justify="space-between">
+					<Input prefix={<SearchOutlined />} placeholder="请输入名称" />
+					<Button type="text" shape="circle" icon={<MenuUnfoldOutlined />} />
 				</Flex>
-			</Content>
+				<Flex justify="space-between">
+					<Space>
+						<SnippetsOutlined />
+						<Text>任务模板</Text>
+					</Space>
+					<Space size={0}>
+						<MenuDropdown />
+						<RefreshButton key="task" />
+					</Space>
+				</Flex>
+			</Flex>
 		</Flex>
 	);
 };
