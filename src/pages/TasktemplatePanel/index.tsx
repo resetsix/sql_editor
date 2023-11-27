@@ -37,7 +37,7 @@ export const TasktemplatePanel = () => {
 					</Space>
 					<Space size={0}>
 						<MenuDropdown />
-						<RefreshButton key="task" />
+						<RefreshButton catchKey="task_template" />
 					</Space>
 				</Flex>
 			</Flex>

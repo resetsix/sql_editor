@@ -24,7 +24,7 @@ export const MetaDataPanel = () => {
 							prefix={<SearchOutlined />}
 							placeholder="请输入库名/表名/关键词搜索"
 						/>
-						<RefreshButton key="data_dev" />
+						<RefreshButton catchKey="meta_data" />
 					</Flex>
 				</Flex>
 			</Content>

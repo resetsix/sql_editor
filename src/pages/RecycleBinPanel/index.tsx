@@ -20,7 +20,7 @@ export const RecycleBinPanel = () => {
 							<DeleteOutlined />
 							<Text>回收站</Text>
 						</Space>
-						<RefreshButton key="task" />
+						<RefreshButton catchKey="recycle_bin" />
 					</Flex>
 				</Flex>
 			</Content>

@@ -34,7 +34,7 @@ export const ResourceLibPanel = () => {
 						</Space>
 						<Space size={0}>
 							<MenuDropdown />
-							<RefreshButton key="task" />
+							<RefreshButton catchKey="resource_lib" />
 						</Space>
 					</Flex>
 				</Flex>
