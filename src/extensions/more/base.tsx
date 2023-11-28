@@ -1,20 +1,22 @@
 import { IActivityBarItem, ISidebarPane } from "@dtinsight/molecule/esm/model";
+import { ID_COLLECTIONS } from "../../constant";
 import { MorePanel } from "../../pages/MorePanel";
 
-const More_ID = "more";
+const RECOURCE_NAME = "更多";
 
+// 其他配置
 const MoreActivityBar: IActivityBarItem = {
-	id: More_ID,
+	id: ID_COLLECTIONS.AC_MORE,
 	sortIndex: 6,
-	name: "更多",
-	title: "更多",
+	name: RECOURCE_NAME,
+	title: RECOURCE_NAME,
 	icon: "ellipsis",
 };
 
 const MoreSiderPanel: ISidebarPane = {
-	id: More_ID,
-	title: "更多",
+	id: MoreActivityBar.id,
+	title: RECOURCE_NAME,
 	render: () => <MorePanel />,
 };
 
-export { More_ID, MoreActivityBar, MoreSiderPanel };
+export { MoreActivityBar, MoreSiderPanel };

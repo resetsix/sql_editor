@@ -1,46 +1,10 @@
 import molecule from "@dtinsight/molecule";
-import { UniqueId } from "@dtinsight/molecule/esm/common/types";
 import { IExtension } from "@dtinsight/molecule/esm/model";
 import { IExtensionService } from "@dtinsight/molecule/esm/services";
 import { Button } from "antd";
-import { CONSOLE, OPERATIONS } from "../constant";
-import { DataDev_ID } from "./dataDev/base";
-import { More_ID } from "./more/base";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const initMenuBarback = () => {
-	molecule.menuBar.setState({
-		logo: (
-			<Button type="link">Logo</Button>
-			// <Image
-			// 	sizes="200"
-			// 	preview={false}
-			// 	src="https://lf-cdn-tos.bytescm.com/obj/static/dp/dorado_fe_c/ide3/bf54d3b02688acad047f..png"
-			// />
-			// <AppstoreOutlined />
-		),
-	});
-	molecule.layout.setMenuBarMode("horizontal");
-	const state = molecule.menuBar.getState();
-	const nextData = state.data.concat();
-	nextData.splice(1, 0, {
-		id: "operation",
-		name: "运维中心",
-		data: [...OPERATIONS],
-	});
-	nextData.splice(2, 0, {
-		id: "console",
-		name: "控制台",
-		data: [...CONSOLE],
-	});
-	const menuRunning = nextData.findIndex((menu) => menu.id === "Run");
-	if (menuRunning > -1) {
-		nextData.splice(menuRunning, 1);
-	}
-	molecule.menuBar.setState({
-		data: nextData,
-	});
-};
+import { ID_COLLECTIONS, OPERATIONS } from "../constant";
+import { dataDevActivityBar } from "./dataDev/base";
+import { MoreActivityBar } from "./more/base";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const initTheme = () => {
@@ -49,9 +13,9 @@ const initTheme = () => {
 
 const initActive = () => {
 	// 默认选中的ActivityBar选项
-	molecule.activityBar.setActive(DataDev_ID);
+	molecule.activityBar.setActive(ID_COLLECTIONS.AC_DATADEV_ID);
 	// 默认选中的Siderbar选项
-	molecule.sidebar.setActive(DataDev_ID);
+	molecule.sidebar.setActive(dataDevActivityBar.id);
 };
 
 const initMenuBar = () => {
@@ -66,47 +30,47 @@ const initMenuBar = () => {
 	molecule.menuBar.setState({
 		logo: <Button type="link">Logo</Button>,
 		data: [
-			{ id: "全部产品", name: "全部产品" },
-			{ id: "数据开发", name: "数据开发" },
-			{ id: "任务开发", name: "任务开发" },
-			{ id: "发布中心", name: "发布中心" },
+			{ id: ID_COLLECTIONS.MENU_ALL_PROJECTS_ID, name: "全部产品" },
+			{ id: ID_COLLECTIONS.MENU_DATA_DEV_ID, name: "数据开发" },
+			{ id: ID_COLLECTIONS.MENU_TASK_DEV_ID, name: "任务开发" },
+			{ id: ID_COLLECTIONS.MENU_PUBLISH_CENTER_ID, name: "发布中心" },
 			{
-				id: "运维中心",
+				id: "operation",
 				name: "运维中心(多)",
-				data: [
-					{
-						id: "离线任务运维",
-						name: "离线任务运维",
-					},
-					{
-						id: "实时任务运维",
-						name: "实时任务运维",
-					},
-				],
+				data: [...OPERATIONS],
 			},
-			{ id: "地区", name: "选择地区" },
-			{ id: "项目", name: "选择项目" },
+			{ id: ID_COLLECTIONS.MENU_USER_CONFIG_ID, name: "其他配置" },
 		],
 	});
 	molecule.menuBar.onSelect((record) => {
-		(record === "地区" || record === "项目" || record === "全部产品") &&
-			molecule.activityBar.setActive(More_ID);
-		(record === "地区" || record === "项目" || record === "全部产品") &&
-			molecule.sidebar.setActive(More_ID);
+		switch (record) {
+			case ID_COLLECTIONS.MENU_USER_CONFIG_ID:
+			case ID_COLLECTIONS.MENU_ALL_PROJECTS_ID:
+				molecule.activityBar.setActive(MoreActivityBar.id); // 活动栏：更多菜单选项
+				molecule.sidebar.setActive(MoreActivityBar.id); // 边栏：更多菜单内容
+				break;
+			case ID_COLLECTIONS.MENU_DATA_DEV_ID:
+			case ID_COLLECTIONS.MENU_TASK_DEV_ID:
+				molecule.activityBar.setActive(dataDevActivityBar.id); // 活动栏：数据开发选项
+				molecule.sidebar.setActive(dataDevActivityBar.id); // 边栏：数据开发内容
+				break;
+			default:
+				break;
+		}
 	});
 };
 
-export class InitSomethingExtension implements IExtension {
-	id: UniqueId = "INIT_SOMETHING_ID";
-	name = "初始化操作";
+export const InitSomethingExtension: IExtension = {
+	id: "INIT_SOMETHING_ID",
+	name: "初始化操作",
 
 	activate(extensionCtx: IExtensionService): void {
 		initActive(); // 初始化活动栏
 		initMenuBar(); // 初始化菜单栏
 		// initTheme(); // 初始化主题
-	}
+	},
 
 	dispose(extensionCtx: IExtensionService): void {
 		throw new Error("Method not implemented.");
-	}
-}
+	},
+};

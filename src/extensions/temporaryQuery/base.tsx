@@ -1,26 +1,23 @@
 import { IActivityBarItem, ISidebarPane } from "@dtinsight/molecule/esm/model";
+import { ID_COLLECTIONS } from "../../constant";
 import { TemporaryQueryPanel } from "../../pages/TemporaryQueryPanel";
 
-const TEMPORARYQUERY_ID = "temporaryQuery";
+const RECOURCE_NAME = "临时查询";
 
 const temporaryQueryActivityBar: IActivityBarItem = {
-	id: TEMPORARYQUERY_ID,
+	id: ID_COLLECTIONS.AC_TEMPORARYQUERY,
 	sortIndex: 1,
-	name: "临时查询",
-	title: "临时查询",
+	name: RECOURCE_NAME,
+	title: RECOURCE_NAME,
 	icon: "search",
 };
 
 const temporaryQuerySiderPanel: ISidebarPane = {
-	id: TEMPORARYQUERY_ID,
-	title: "临时查询",
+	id: temporaryQueryActivityBar.id,
+	title: RECOURCE_NAME,
 	render: () => {
 		return <TemporaryQueryPanel />;
 	},
 };
 
-export {
-	TEMPORARYQUERY_ID,
-	temporaryQueryActivityBar,
-	temporaryQuerySiderPanel,
-};
+export { temporaryQueryActivityBar, temporaryQuerySiderPanel };

@@ -1,22 +1,23 @@
 import { IActivityBarItem, ISidebarPane } from "@dtinsight/molecule/esm/model";
+import { ID_COLLECTIONS } from "../../constant";
 import { ResourceLibPanel } from "../../pages/ResourceLibPanel";
 
-const RESOURCELIB_ID = "resourceLib";
+const RECOURCE_NAME = "资源库";
 
 const ResourceLibActivityBar: IActivityBarItem = {
-	id: RESOURCELIB_ID,
+	id: ID_COLLECTIONS.AC_RESOURCELIB,
 	sortIndex: 3,
-	name: "资源库",
-	title: "资源库",
+	name: RECOURCE_NAME,
+	title: RECOURCE_NAME,
 	icon: "archive",
 };
 
 const ResourceLibSiderPanel: ISidebarPane = {
-	id: RESOURCELIB_ID,
-	title: "资源库",
+	id: ResourceLibActivityBar.id,
+	title: RECOURCE_NAME,
 	render: () => {
 		return <ResourceLibPanel />;
 	},
 };
 
-export { RESOURCELIB_ID, ResourceLibActivityBar, ResourceLibSiderPanel };
+export { ResourceLibActivityBar, ResourceLibSiderPanel };

@@ -1,22 +1,23 @@
 import { IActivityBarItem, ISidebarPane } from "@dtinsight/molecule/esm/model";
+import { ID_COLLECTIONS } from "../../constant";
 import { TasktemplatePanel } from "../../pages/TasktemplatePanel";
 
-const TASKTEMPALTE_ID = "taskTemplate";
+const RECOURCE_NAME = "任务模板";
 
 const taskTemplateActivityBar: IActivityBarItem = {
-	id: TASKTEMPALTE_ID,
+	id: ID_COLLECTIONS.AC_TASKTEMPLATE,
 	sortIndex: 2,
-	name: "任务模板",
-	title: "任务模板",
+	name: RECOURCE_NAME,
+	title: RECOURCE_NAME,
 	icon: "book",
 };
 
 const taskTemplateSiderPanel: ISidebarPane = {
-	id: TASKTEMPALTE_ID,
-	title: "任务模板",
+	id: taskTemplateActivityBar.id,
+	title: RECOURCE_NAME,
 	render: () => {
 		return <TasktemplatePanel />;
 	},
 };
 
-export { TASKTEMPALTE_ID, taskTemplateActivityBar, taskTemplateSiderPanel };
+export { taskTemplateActivityBar, taskTemplateSiderPanel };

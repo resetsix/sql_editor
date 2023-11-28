@@ -1,22 +1,23 @@
 import { IActivityBarItem, ISidebarPane } from "@dtinsight/molecule/esm/model";
+import { ID_COLLECTIONS } from "../../constant";
 import { RecycleBinPanel } from "../../pages/RecycleBinPanel";
 
-const RECYCLEBIN_ID = "recycleBin_id";
+const RECOURCE_NAME = "回收站";
 
 const RecycleBinActivityBar: IActivityBarItem = {
-	id: RECYCLEBIN_ID,
+	id: ID_COLLECTIONS.AC_RECYCLEBIN,
 	sortIndex: 4,
-	name: "回收站",
-	title: "回收站",
+	name: RECOURCE_NAME,
+	title: RECOURCE_NAME,
 	icon: "trash",
 };
 
 const RecycleBinSiderPanel: ISidebarPane = {
-	id: RECYCLEBIN_ID,
-	title: "回收站",
+	id: RecycleBinActivityBar.id,
+	title: RECOURCE_NAME,
 	render: () => {
 		return <RecycleBinPanel />;
 	},
 };
 
-export { RECYCLEBIN_ID, RecycleBinActivityBar, RecycleBinSiderPanel };
+export { RecycleBinActivityBar, RecycleBinSiderPanel };

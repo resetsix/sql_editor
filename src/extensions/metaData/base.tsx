@@ -1,20 +1,21 @@
 import { IActivityBarItem, ISidebarPane } from "@dtinsight/molecule/esm/model";
+import { ID_COLLECTIONS } from "../../constant";
 import { MetaDataPanel } from "../../pages/MetaDataPanel";
 
-const MetaData_ID = "metaData";
+const RECOURCE_NAME = "元数据";
 
 const metaDataActivityBar: IActivityBarItem = {
-	id: MetaData_ID,
+	id: ID_COLLECTIONS.AC_METADATA,
 	sortIndex: 2,
-	name: "元数据",
-	title: "元数据",
+	name: RECOURCE_NAME,
+	title: RECOURCE_NAME,
 	icon: "database",
 };
 
 const metaDataSiderPanel: ISidebarPane = {
-	id: MetaData_ID,
-	title: "元数据",
+	id: metaDataActivityBar.id,
+	title: RECOURCE_NAME,
 	render: () => <MetaDataPanel />,
 };
 
-export { MetaData_ID, metaDataActivityBar, metaDataSiderPanel };
+export { metaDataActivityBar, metaDataSiderPanel };

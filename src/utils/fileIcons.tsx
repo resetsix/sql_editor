@@ -21,7 +21,7 @@ import {
 	HadoopMRIcon,
 	DataxIcon,
 } from "../components/icon";
-import { TASK_TYPE_ENUM } from "../constant";
+import { TASK_TYPE_ENUM } from "../constant/taier_back";
 
 export const filterIcon = (icon: TASK_TYPE_ENUM) => {
 	switch (icon) {
