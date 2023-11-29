@@ -61,7 +61,11 @@ export enum ID_COLLECTIONS {
     */
     MENU_USER_CONFIG_ID = 'menu.user.config',
 
-
+    /* 编辑器 ID 集合 */
+    /**
+     * 运行
+     */
+    EDITOR_RUNNING_ID = 'editor.running',
 }
 
 /**

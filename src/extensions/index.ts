@@ -1,6 +1,7 @@
 import { IExtension } from "@dtinsight/molecule/esm/model";
 import { ComfirmExtension } from "./comfirm";
 import { DataDevExtension } from "./dataDev";
+import { EditorExtension } from "./editor";
 import { FunctionLibExtension } from "./functionLib";
 import { InitSomethingExtension } from "./init";
 import { MetaDataExtension } from "./metaData";
@@ -9,6 +10,7 @@ import { RecycleBinExtension } from "./recycleBin";
 import { ResourceLibExtension } from "./resourceLib";
 import { TaskTemplateExtension } from "./taskTemplate";
 import { TemporaryQueryExtension } from "./temporaryQuery";
+import { PanelExtension } from "./panel";
 
 // 所有extendsion的入口集合
 const extensions: IExtension[] = [
@@ -17,6 +19,8 @@ const extensions: IExtension[] = [
     TaskTemplateExtension, // 任务模板
     TemporaryQueryExtension, // 临时查询
     ResourceLibExtension, // 资源库
+    EditorExtension, // 编辑器
+    PanelExtension, // 输出面板 
     MoreExtension, // 更多
     FunctionLibExtension, // 函数库
     RecycleBinExtension, // 回收站
