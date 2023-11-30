@@ -217,6 +217,7 @@ export const DTTree = () => {
 			>
 				<DirectoryTree
 					multiple
+					defaultExpandAll
 					onSelect={onSelect}
 					onExpand={onExpand}
 					treeData={transformFolderData(treeData)}

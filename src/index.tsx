@@ -12,12 +12,13 @@ root.render(
 	// <React.StrictMode>
 	<ConfigProvider
 		theme={{
-			algorithm: theme.darkAlgorithm,
+			algorithm: theme.darkAlgorithm, // 暗黑主题
 			components: {
 				Modal: {
-					wireframe: true,
+					wireframe: true, // 对话框：开启线框风格
 				},
 			},
+			token: { fontSize: 13 }, // 字体大小：默认13px
 		}}
 	>
 		<NiceModal.Provider>
