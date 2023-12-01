@@ -29,7 +29,6 @@ const treeData = [
 export const CopyModal = NiceModal.create(({ data }: any) => {
 	const [form] = useForm();
 	const modal = useModal();
-	console.log(data);
 
 	return (
 		<Modal

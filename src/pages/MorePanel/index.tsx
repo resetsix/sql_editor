@@ -4,7 +4,6 @@ import {
 	Checkbox,
 	Flex,
 	Input,
-	MenuProps,
 	Row,
 	Select,
 	Space,
@@ -24,10 +23,6 @@ export const MorePanel = () => {
 
 	const showDrawer = () => {
 		setOpen(true);
-	};
-
-	const onClick: MenuProps["onClick"] = (e) => {
-		console.log("click ", e);
 	};
 
 	return (
@@ -75,7 +70,7 @@ export const MorePanel = () => {
 					/>
 				</Flex>
 			</Flex>
-			<MenuDrawer open={open} onClose={onClose} onClick={onClick} />
+			<MenuDrawer open={open} onClose={onClose} />
 		</>
 	);
 };
