@@ -3,12 +3,18 @@ import { IExtension } from "@dtinsight/molecule/esm/model";
 import { IExtensionService } from "@dtinsight/molecule/esm/services";
 import { Button } from "antd";
 import { ID_COLLECTIONS, OPERATIONS } from "../constant";
+import { EditorEntry } from "../pages/EditorEntry";
 import { dataDevActivityBar } from "./dataDev/base";
 import { MoreActivityBar } from "./more/base";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const initTheme = () => {
 	molecule.colorTheme.setTheme("GitHub Plus");
+};
+
+const initEntry = () => {
+	// 设置编辑器的入口页
+	molecule.editor.setEntry(<EditorEntry />);
 };
 
 const initActive = () => {
@@ -65,6 +71,7 @@ export const InitSomethingExtension: IExtension = {
 	name: "初始化操作",
 
 	activate(extensionCtx: IExtensionService): void {
+		initEntry(); // 初始化编辑器入口页
 		initActive(); // 初始化活动栏
 		initMenuBar(); // 初始化菜单栏
 		// initTheme(); // 初始化主题
