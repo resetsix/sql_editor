@@ -7,12 +7,13 @@ import molecule from "@dtinsight/molecule";
 import NiceModal from "@ebay/nice-modal-react";
 import { useMount } from "ahooks";
 import { App, Dropdown, Flex, MenuProps, Tree, theme } from "antd";
+import { useQueryClient } from "react-query";
 import { useFolderData } from "../../hook/useFolderTree";
 import { useStore } from "../../stores/useStore";
 import { transformToEditorTab } from "../../utils";
-import { RenameModal } from "../modals/RenameModal";
 import { CreateSubdirModal } from "../modals/CreateSubdirModal";
-import { useQueryClient } from "react-query";
+import { MoveModal } from "../modals/MoveModal";
+import { RenameModal } from "../modals/RenameModal";
 
 const { DirectoryTree } = Tree;
 
@@ -25,11 +26,13 @@ export const DTTree = () => {
 
 	const { selectedTreeData, setSelectedTreeData } = useStore();
 	// 获取数据
+
 	const { data, isFetching } = useFolderData();
 
 	useMount(() => {
-		NiceModal.register("RenameModal", RenameModal);
-		NiceModal.register("CreateSubdirModal", CreateSubdirModal);
+		NiceModal.register("MoveModal", MoveModal); // 注册移动对话框
+		NiceModal.register("RenameModal", RenameModal); // 注册重命名对话框
+		NiceModal.register("CreateSubdirModal", CreateSubdirModal); // 注册新建子目录对话框
 	});
 
 	const items: MenuProps["items"] =
@@ -48,6 +51,8 @@ export const DTTree = () => {
 					{
 						label: "移动",
 						key: "move_folder",
+						onClick: () =>
+							NiceModal.show("MoveModal", { data: selectedTreeData }),
 					},
 					{
 						label: "重命名",
@@ -99,6 +104,8 @@ export const DTTree = () => {
 					{
 						label: "移动",
 						key: "move_file",
+						onClick: () =>
+							NiceModal.show("MoveModal", { data: selectedTreeData }),
 					},
 					{
 						label: "操作日志",
