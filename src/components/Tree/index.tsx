@@ -15,6 +15,7 @@ import { CreateSubdirModal } from "../modals/CreateSubdirModal";
 import { MoveModal } from "../modals/MoveModal";
 import { RenameModal } from "../modals/RenameModal";
 import { CopyModal } from "../modals/CopyModal";
+import { DeleteModal } from "../modals/DeleteModal";
 
 const { DirectoryTree } = Tree;
 
@@ -33,6 +34,7 @@ export const DTTree = () => {
 	useMount(() => {
 		NiceModal.register("MoveModal", MoveModal); // 注册移动对话框
 		NiceModal.register("CopyModal", CopyModal); // 注册复制对话框
+		NiceModal.register("DeleteModal", DeleteModal); // 注册删除对话框
 		NiceModal.register("RenameModal", RenameModal); // 注册重命名对话框
 		NiceModal.register("CreateSubdirModal", CreateSubdirModal); // 注册新建子目录对话框
 	});
@@ -65,6 +67,8 @@ export const DTTree = () => {
 					{
 						label: "删除",
 						key: "delete_folder",
+						onClick: () =>
+							NiceModal.show("DeleteModal", { data: selectedTreeData }),
 					},
 					{
 						label: "刷新",
@@ -98,6 +102,8 @@ export const DTTree = () => {
 					{
 						label: "删除",
 						key: "delete-file",
+						onClick: () =>
+							NiceModal.show("DeleteModal", { data: selectedTreeData }),
 					},
 					{
 						label: "复制",
