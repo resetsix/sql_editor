@@ -1,109 +1,120 @@
 {
-	"data": {
-		"id": 0,
-		"name": "MySQL_Data",
-		"fileType": "RootFolder",
-		"location": "root",
-		"isLeaf": false,
-		"data": "",
-		"children": [
-			{
-				"id": 1,
-				"name": "test.js",
-				"location": "root/test.js",
-				"fileType": "File",
-				"isLeaf": true,
-				"data": {
-					"language": "javascript",
-					"value": "console.log('Hello World');"
-				}
-			},
-			{
-				"id": 2,
-				"name": "test.css",
-				"fileType": "File",
-				"location": "root/test.css",
-				"isLeaf": true,
-				"data": {
-					"language": "css",
-					"value": "mo { background-color: var(--workbenchBackground); color: var(--foreground); }"
-				}
-			},
-			{
-				"id": 3,
-				"name": "index.html",
-				"fileType": "File",
-				"location": "root/index.html",
-				"isLeaf": true,
-				"data": {
-					"language": "html",
-					"value": "<div id=\"molecule\">Hello Molecule</div>"
-				}
-			},
-			{
-				"id": 4,
-				"name": "test.json",
-				"fileType": "File",
-				"location": "root/test.json",
-				"isLeaf": true,
-				"data": {
-					"language": "json",
-					"value": "{ \"language\": \"json\", \"value\": \"{}\" }"
-				}
-			},
-			{
-				"id": 5,
-				"name": "Sub Folder",
-				"isLeaf": false,
-				"fileType": "Folder",
-				"location": "root/Sub Folder",
-				"children": [
-					{
-						"id": 11,
-						"name": "test.js",
-						"fileType": "File",
-						"location": "root/Sub Folder/test.js",
-						"isLeaf": true,
-						"data": {
-							"language": "javascript",
-							"value": "console.log('Hello World');"
-						}
-					},
-					{
-						"id": 12,
-						"name": "test.css",
-						"location": "root/Sub Folder/test.css",
-						"isLeaf": true,
-						"fileType": "File",
-						"data": {
-							"language": "css",
-							"value": "mo { background-color: var(--workbenchBackground); color: var(--foreground); }"
-						}
-					},
-					{
-						"id": 13,
-						"name": "index.html",
-						"location": "root/Sub Folder/index.html",
-						"isLeaf": true,
-						"fileType": "File",
-						"data": {
-							"language": "html",
-							"value": "<div id=\"molecule\">Hello Molecule</div>"
-						}
-					},
-					{
-						"id": 14,
-						"name": "test.json",
-						"location": "root/Sub Folder/test.json",
-						"isLeaf": true,
-						"fileType": "File",
-						"data": {
-							"language": "json",
-							"value": "{ \"language\": \"json\", \"value\": \"{}\" }"
-						}
+	"data": [
+		{
+			"key": 0,
+			"title": "MySQL_Data",
+			"fileType": "RootFolder",
+			"location": "MySQL_Data",
+			"isLeaf": false,
+			"data": "",
+			"children": [
+				{
+					"key": 1,
+					"title": "mysql.sql",
+					"name": "mysql.sql",
+					"location": "MySQL_Data/mysql.sql",
+					"fileType": "File",
+					"isLeaf": true,
+					"data": {
+						"language": "mysql",
+						"value": "select * from name"
 					}
-				]
-			}
-		]
-	}
+				},
+				{
+					"key": 2,
+					"title": "flinkSQL.sql",
+					"name": "flinkSQL.sql",
+					"location": "MySQL_Data/flinkSQL.sql",
+					"fileType": "File",
+					"isLeaf": true,
+					"data": {
+						"language": "mysql",
+						"value": "select * from name"
+					}
+				},
+				{
+					"key": 3,
+					"title": "index.html",
+					"name": "index.html",
+					"fileType": "File",
+					"location": "MySQL_Data/index.html",
+					"isLeaf": true,
+					"data": {
+						"language": "html",
+						"value": "<div id=\"molecule\">Hello Molecule</div>"
+					}
+				},
+				{
+					"key": 4,
+					"title": "test.json",
+					"name": "test.json",
+					"fileType": "File",
+					"location": "MySQL_Data/test.json",
+					"isLeaf": true,
+					"data": {
+						"language": "json",
+						"value": "{ \"language\": \"json\", \"value\": \"{}\" }"
+					}
+				},
+				{
+					"key": 5,
+					"title": "Sub Folder",
+					"name": "Sub Folder",
+					"isLeaf": false,
+					"fileType": "Folder",
+					"location": "MySQL_Data/Sub Folder",
+					"children": [
+						{
+							"key": 11,
+							"title": "test.js",
+							"name": "test.js",
+							"fileType": "File",
+							"location": "MySQL_Data/Sub Folder/test.js",
+							"isLeaf": true,
+							"data": {
+								"language": "javascript",
+								"value": "console.log('Hello World');"
+							}
+						},
+						{
+							"key": 12,
+							"title": "test.css",
+							"name": "test.css",
+							"location": "MySQL_Data/Sub Folder/test.css",
+							"isLeaf": true,
+							"fileType": "File",
+							"data": {
+								"language": "css",
+								"value": "mo { background-color: var(--workbenchBackground); color: var(--foreground); }"
+							}
+						},
+						{
+							"key": 13,
+							"title": "index.html",
+							"name": "index.html",
+							"location": "MySQL_Data/Sub Folder/index.html",
+							"isLeaf": true,
+							"fileType": "File",
+							"data": {
+								"language": "html",
+								"value": "<div id=\"molecule\">Hello Molecule</div>"
+							}
+						},
+						{
+							"key": 14,
+							"title": "test.json",
+							"name": "test.json",
+							"location": "MySQL_Data/Sub Folder/test.json",
+							"isLeaf": true,
+							"fileType": "File",
+							"data": {
+								"language": "json",
+								"value": "{ \"language\": \"json\", \"value\": \"{}\" }"
+							}
+						}
+					]
+				}
+			]
+		}
+	]
 }
