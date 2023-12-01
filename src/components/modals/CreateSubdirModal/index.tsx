@@ -28,7 +28,12 @@ export const CreateSubdirModal = NiceModal.create(({ data }: any) => {
 				wrapperCol={{ span: 18 }}
 			>
 				{/* TODO 不清楚目录名称的字段是name？title？localtion？ */}
-				<Item required name="title" label="目录名称">
+				<Item
+					required
+					name="title"
+					label="目录名称"
+					rules={[{ required: true, message: "请输入目录名" }]}
+				>
 					<Input placeholder="请输入目录名称" />
 				</Item>
 				<Item name="location" label="当前目录">

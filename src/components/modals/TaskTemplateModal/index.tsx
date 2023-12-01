@@ -24,7 +24,11 @@ export const TaskTemplateModal = NiceModal.create(() => {
 				labelCol={{ span: 6 }}
 				wrapperCol={{ span: 18 }}
 			>
-				<Item required label="模板名称">
+				<Item
+					required
+					label="模板名称"
+					rules={[{ required: true, message: "请输入模板名" }]}
+				>
 					<Input placeholder="请输入模板名称" />
 				</Item>
 				<Item label="模板描述">

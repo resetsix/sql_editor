@@ -1,9 +1,8 @@
 import NiceModal, { useModal } from "@ebay/nice-modal-react";
-import { Form, Modal, TreeSelect, Typography } from "antd";
+import { Form, Input, Modal, TreeSelect } from "antd";
 import { useForm } from "antd/es/form/Form";
 
 const { Item } = Form;
-const { Text } = Typography;
 
 const treeData = [
 	{
@@ -26,8 +25,8 @@ const treeData = [
 	},
 ];
 
-// 对话框：移动
-export const MoveModal = NiceModal.create(({ data }: any) => {
+// 对话框：复制
+export const CopyModal = NiceModal.create(({ data }: any) => {
 	const [form] = useForm();
 	const modal = useModal();
 	console.log(data);
@@ -37,7 +36,7 @@ export const MoveModal = NiceModal.create(({ data }: any) => {
 			centered
 			destroyOnClose
 			width="40%"
-			title="移动"
+			title="复制"
 			maskClosable={false}
 			open={modal.visible}
 			onOk={modal.remove}
@@ -50,8 +49,12 @@ export const MoveModal = NiceModal.create(({ data }: any) => {
 				wrapperCol={{ span: 18 }}
 				initialValues={data}
 			>
-				<Item name="location" label="当前路径">
-					<Text>任务开发/{data?.location}</Text>
+				<Item
+					name="title"
+					label="当前任务名"
+					rules={[{ required: true, message: "请输入任务名" }]}
+				>
+					<Input />
 				</Item>
 				<Item
 					required

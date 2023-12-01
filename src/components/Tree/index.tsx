@@ -14,6 +14,7 @@ import { transformToEditorTab } from "../../utils";
 import { CreateSubdirModal } from "../modals/CreateSubdirModal";
 import { MoveModal } from "../modals/MoveModal";
 import { RenameModal } from "../modals/RenameModal";
+import { CopyModal } from "../modals/CopyModal";
 
 const { DirectoryTree } = Tree;
 
@@ -31,6 +32,7 @@ export const DTTree = () => {
 
 	useMount(() => {
 		NiceModal.register("MoveModal", MoveModal); // 注册移动对话框
+		NiceModal.register("CopyModal", CopyModal); // 注册复制对话框
 		NiceModal.register("RenameModal", RenameModal); // 注册重命名对话框
 		NiceModal.register("CreateSubdirModal", CreateSubdirModal); // 注册新建子目录对话框
 	});
@@ -100,6 +102,8 @@ export const DTTree = () => {
 					{
 						label: "复制",
 						key: "copy_file",
+						onClick: () =>
+							NiceModal.show("CopyModal", { data: selectedTreeData }),
 					},
 					{
 						label: "移动",
@@ -110,6 +114,7 @@ export const DTTree = () => {
 					{
 						label: "操作日志",
 						key: "operation_log",
+						disabled: true,
 					},
 			  ];
 
