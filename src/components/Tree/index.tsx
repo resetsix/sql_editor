@@ -6,11 +6,13 @@ import {
 import molecule from "@dtinsight/molecule";
 import NiceModal from "@ebay/nice-modal-react";
 import { useMount } from "ahooks";
-import { Dropdown, Flex, MenuProps, Tree, theme } from "antd";
+import { App, Dropdown, Flex, MenuProps, Tree, theme } from "antd";
 import { useFolderData } from "../../hook/useFolderTree";
 import { useStore } from "../../stores/useStore";
 import { transformToEditorTab } from "../../utils";
 import { RenameModal } from "../modals/RenameModal";
+import { CreateSubdirModal } from "../modals/CreateSubdirModal";
+import { useQueryClient } from "react-query";
 
 const { DirectoryTree } = Tree;
 
@@ -18,12 +20,17 @@ export const DTTree = () => {
 	const {
 		token: { colorBgLayout, colorTextTertiary },
 	} = theme.useToken();
+	const { message } = App.useApp();
+	const client = useQueryClient();
 
 	const { selectedTreeData, setSelectedTreeData } = useStore();
 	// 获取数据
 	const { data, isFetching } = useFolderData();
 
-	useMount(() => NiceModal.register("RenameModal", RenameModal));
+	useMount(() => {
+		NiceModal.register("RenameModal", RenameModal);
+		NiceModal.register("CreateSubdirModal", CreateSubdirModal);
+	});
 
 	const items: MenuProps["items"] =
 		selectedTreeData.fileType !== "File"
@@ -35,6 +42,8 @@ export const DTTree = () => {
 					{
 						label: "新建子目录",
 						key: "create_folder_subfolder",
+						onClick: () =>
+							NiceModal.show("CreateSubdirModal", { data: selectedTreeData }),
 					},
 					{
 						label: "移动",
@@ -53,6 +62,23 @@ export const DTTree = () => {
 					{
 						label: "刷新",
 						key: "refresh_folder",
+						onClick: () =>
+							client
+								.invalidateQueries("")
+								.then(() =>
+									message.open({
+										key: `success${""}`,
+										type: "success",
+										content: "刷新成功",
+									})
+								)
+								.catch(() =>
+									message.open({
+										key: `error${""}`,
+										type: "error",
+										content: "刷新失败",
+									})
+								),
 					},
 			  ]
 			: [

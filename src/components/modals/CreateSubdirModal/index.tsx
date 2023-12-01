@@ -5,15 +5,17 @@ import { useForm } from "antd/es/form/Form";
 const { Item } = Form;
 const { Text } = Typography;
 
+// 对话框：新建子目录
 export const CreateSubdirModal = NiceModal.create(({ data }: any) => {
 	const [form] = useForm();
 	const modal = useModal();
+
 	return (
 		<Modal
 			centered
 			destroyOnClose
 			width="40%"
-			title="重命名"
+			title="新建子目录"
 			maskClosable={false}
 			open={modal.visible}
 			onOk={modal.remove}
@@ -25,11 +27,12 @@ export const CreateSubdirModal = NiceModal.create(({ data }: any) => {
 				labelCol={{ span: 6 }}
 				wrapperCol={{ span: 18 }}
 			>
-				<Item required label="当前任务名">
-					<Input placeholder="请输入模板名称" />
+				{/* TODO 不清楚目录名称的字段是name？title？localtion？ */}
+				<Item required name="title" label="目录名称">
+					<Input placeholder="请输入目录名称" />
 				</Item>
-				<Item label="当前目录">
-					<Text>路径</Text>
+				<Item name="location" label="当前目录">
+					<Text>任务开发/{data?.location}</Text>
 				</Item>
 			</Form>
 		</Modal>
