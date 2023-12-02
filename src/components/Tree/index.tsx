@@ -7,10 +7,9 @@ import molecule from "@dtinsight/molecule";
 import NiceModal from "@ebay/nice-modal-react";
 import { useMount } from "ahooks";
 import { App, Dropdown, Flex, MenuProps, Tree } from "antd";
-import { useEffect } from "react";
 import { useQueryClient } from "react-query";
 import { useFolderData } from "../../hook/useFolderTree";
-import { ModeType, useStore } from "../../stores/useStore";
+import { useStore } from "../../stores/useStore";
 import { transformToEditorTab } from "../../utils";
 import { CopyModal } from "../modals/CopyModal";
 import { CreateSubdirModal } from "../modals/CreateSubdirModal";
@@ -24,15 +23,8 @@ export const DTTree = () => {
 	const { message } = App.useApp();
 	const client = useQueryClient();
 
-	const { setMode, selectedTreeData, setSelectedTreeData } = useStore();
+	const { selectedTreeData, setSelectedTreeData } = useStore();
 
-	useEffect(() => {
-		setMode(
-			(window.localStorage.getItem("theme") ||
-				molecule.colorTheme.getColorThemeMode()) as ModeType
-		);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [window.localStorage.getItem("theme")]);
 	// 获取数据
 
 	const { data, isFetching } = useFolderData();

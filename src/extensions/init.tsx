@@ -12,10 +12,6 @@ const initTheme = () => {
 	molecule.colorTheme.setTheme("One Dark Pro");
 	// 将当前主题的（light or mode）模式状态存储到 localStorage 中
 	window.localStorage.setItem("theme", molecule.colorTheme.getColorThemeMode());
-
-	molecule.colorTheme.onChange((prev, next, currentmode) => {
-		window.localStorage.setItem("theme", currentmode);
-	});
 };
 
 const initEntry = () => {
