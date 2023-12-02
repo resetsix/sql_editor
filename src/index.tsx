@@ -1,10 +1,10 @@
 import NiceModal from "@ebay/nice-modal-react";
 import { ConfigProvider, App as MessageApp, theme } from "antd";
 import ReactDOM from "react-dom/client";
+import { QueryClient, QueryClientProvider } from "react-query";
 import App from "./App";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { QueryClient, QueryClientProvider } from "react-query";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
@@ -24,7 +24,10 @@ root.render(
 	// <React.StrictMode>
 	<ConfigProvider
 		theme={{
-			algorithm: theme.darkAlgorithm, // 暗黑主题
+			algorithm:
+				window.localStorage.getItem("theme") === "dark"
+					? theme.darkAlgorithm
+					: theme.defaultAlgorithm,
 			components: {
 				Modal: {
 					wireframe: true, // 对话框：开启线框风格

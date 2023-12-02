@@ -1,4 +1,5 @@
 import { IExtension } from "@dtinsight/molecule/esm/model";
+import { OneDarkPro } from "./OneDark-Pro";
 import { ComfirmExtension } from "./comfirm";
 import { DataDevExtension } from "./dataDev";
 import { EditorExtension } from "./editor";
@@ -6,15 +7,17 @@ import { FunctionLibExtension } from "./functionLib";
 import { InitSomethingExtension } from "./init";
 import { MetaDataExtension } from "./metaData";
 import { MoreExtension } from "./more";
+import { PanelExtension } from "./panel";
 import { RecycleBinExtension } from "./recycleBin";
 import { ResourceLibExtension } from "./resourceLib";
 import { TaskTemplateExtension } from "./taskTemplate";
 import { TemporaryQueryExtension } from "./temporaryQuery";
-import { PanelExtension } from "./panel";
 
 // 所有extendsion的入口集合
 const extensions: IExtension[] = [
     // new FolderTreeExtension(),
+    // GithubVscodeTheme, // GithubVscodeTheme 主题
+    OneDarkPro, // OneDarkPro 主题
     DataDevExtension, // 数据开发
     TaskTemplateExtension, // 任务模板
     TemporaryQueryExtension, // 临时查询

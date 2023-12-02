@@ -7,9 +7,15 @@ import { EditorEntry } from "../pages/EditorEntry";
 import { dataDevActivityBar } from "./dataDev/base";
 import { MoreActivityBar } from "./more/base";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const initTheme = () => {
-	molecule.colorTheme.setTheme("GitHub Plus");
+	// 设置主题
+	molecule.colorTheme.setTheme("One Dark Pro");
+	// 将当前主题的（light or mode）模式状态存储到 localStorage 中
+	window.localStorage.setItem("theme", molecule.colorTheme.getColorThemeMode());
+
+	molecule.colorTheme.onChange((prev, next, currentmode) => {
+		window.localStorage.setItem("theme", currentmode);
+	});
 };
 
 const initEntry = () => {
@@ -74,7 +80,7 @@ export const InitSomethingExtension: IExtension = {
 		initEntry(); // 初始化编辑器入口页
 		initActive(); // 初始化活动栏
 		initMenuBar(); // 初始化菜单栏
-		// initTheme(); // 初始化主题
+		initTheme(); // 初始化主题
 	},
 
 	dispose(extensionCtx: IExtensionService): void {

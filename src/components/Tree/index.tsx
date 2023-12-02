@@ -6,27 +6,33 @@ import {
 import molecule from "@dtinsight/molecule";
 import NiceModal from "@ebay/nice-modal-react";
 import { useMount } from "ahooks";
-import { App, Dropdown, Flex, MenuProps, Tree, theme } from "antd";
+import { App, Dropdown, Flex, MenuProps, Tree } from "antd";
+import { useEffect } from "react";
 import { useQueryClient } from "react-query";
 import { useFolderData } from "../../hook/useFolderTree";
-import { useStore } from "../../stores/useStore";
+import { ModeType, useStore } from "../../stores/useStore";
 import { transformToEditorTab } from "../../utils";
+import { CopyModal } from "../modals/CopyModal";
 import { CreateSubdirModal } from "../modals/CreateSubdirModal";
+import { DeleteModal } from "../modals/DeleteModal";
 import { MoveModal } from "../modals/MoveModal";
 import { RenameModal } from "../modals/RenameModal";
-import { CopyModal } from "../modals/CopyModal";
-import { DeleteModal } from "../modals/DeleteModal";
 
 const { DirectoryTree } = Tree;
 
 export const DTTree = () => {
-	const {
-		token: { colorBgLayout, colorTextTertiary },
-	} = theme.useToken();
 	const { message } = App.useApp();
 	const client = useQueryClient();
 
-	const { selectedTreeData, setSelectedTreeData } = useStore();
+	const { setMode, selectedTreeData, setSelectedTreeData } = useStore();
+
+	useEffect(() => {
+		setMode(
+			(window.localStorage.getItem("theme") ||
+				molecule.colorTheme.getColorThemeMode()) as ModeType
+		);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [window.localStorage.getItem("theme")]);
 	// 获取数据
 
 	const { data, isFetching } = useFolderData();
@@ -136,8 +142,10 @@ export const DTTree = () => {
 		<Dropdown menu={{ items }} trigger={["contextMenu"]}>
 			<div
 				style={{
-					color: colorTextTertiary,
-					background: colorBgLayout,
+					// color: colorTextTertiary,
+					// background: colorBgLayout,
+					// background:
+					// 	molecule.colorTheme.getColorTheme().colors?.["menu.background"],
 					height: "100vh",
 					lineHeight: "100%",
 				}}
@@ -149,6 +157,12 @@ export const DTTree = () => {
 						multiple
 						defaultExpandAll
 						treeData={data}
+						style={{
+							background:
+								molecule.colorTheme.getColorTheme().colors?.[
+									"sideBar.background"
+								],
+						}}
 						onClick={handleOnSelect}
 						onRightClick={({ event, node }) => {
 							setSelectedTreeData(node); // 设置选中的数据
