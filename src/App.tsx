@@ -41,8 +41,6 @@ const App = () => {
 		setCurrentMode(m);
 	}, [currentMode]);
 
-	console.log(molecule.colorTheme.getThemes());
-
 	return (
 		<QueryClientProvider client={queryClient}>
 			<ConfigProvider

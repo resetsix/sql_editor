@@ -1,5 +1,6 @@
 import { IExtension } from "@dtinsight/molecule/esm/model";
 import { OneDarkPro } from "./OneDark-Pro";
+import { ActionsExtension } from "./actions";
 import { ComfirmExtension } from "./comfirm";
 import { DataDevExtension } from "./dataDev";
 import { EditorExtension } from "./editor";
@@ -29,6 +30,7 @@ const extensions: IExtension[] = [
     RecycleBinExtension, // 回收站
     MetaDataExtension, // 元数据
     InitSomethingExtension, // 初始化主题、语言、用户信息等
+    ActionsExtension, // 快捷键
     ComfirmExtension, // 提示用户操作相关的拓展。字面量形式，所以不需要实例化
 ]
 

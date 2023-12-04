@@ -8,9 +8,16 @@ interface ReqConfig extends RequestInit {
 const API_SERVER_URL = "http://localhost:3002";
 
 // 封装fetch请求
-const http = async (endpoint: string, { token, data, ...config }: ReqConfig = {}) => {
+export const http = async (endpoint: string, { token, data, ...config }: ReqConfig = {}) => {
     config = { ...config }
-    return window.fetch(`${API_SERVER_URL}/${endpoint}`, config).then(res => res.json())
+    return window.fetch(`${API_SERVER_URL}/${endpoint}`, config).then(async resp => {
+        const data = await resp.json();
+        if (resp.ok) {
+            return data;
+        } else {
+            return Promise.reject(data);
+        }
+    })
 }
 
 export const useHttp = () => {
@@ -27,6 +34,5 @@ export const useHttp = () => {
         }
         return http(endpoint, cfg)
     }
-
     return { GET }
 }
