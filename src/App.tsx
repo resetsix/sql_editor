@@ -5,6 +5,7 @@ import { ConfigProvider, App as MessageApp, theme } from "antd";
 import { useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import extensions from "./extensions";
+import { useMount } from "ahooks";
 
 const moInstance = create({
 	extensions: extensions,
@@ -26,20 +27,38 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-	const mode = molecule.colorTheme.getColorThemeMode();
-	const [currentMode, setCurrentMode] = useState(mode);
+	const mode = molecule.colorTheme.getColorThemeMode(); // 获取当前主题的 light or dark 模式
+	const userTheme = window.localStorage.getItem("theme"); // 获取当前主题的名称
+
+	const [currentMode, setCurrentMode] = useState(mode); // 主题的 light or dark 模式
+
+	// 在组件挂载时，如果 localStorage 中有主题，则设置为当前主题
+	useMount(() => {
+		if (userTheme) {
+			molecule.colorTheme.setTheme(userTheme);
+		} else {
+			window.localStorage.setItem(
+				"theme",
+				molecule.colorTheme.getColorTheme().id
+			);
+		}
+	});
 
 	// 当用户切换主题时，将主题模式存储到 localStorage 中
+	// prev改变前的主题，next改变后的主题，currentmode当前主题的 light or dark 模式
 	molecule.colorTheme.onChange((prev, next, currentmode) => {
-		window.localStorage.setItem("theme", currentmode);
 		setCurrentMode(currentmode);
+		// 只有在主题真正改变时才更新 localStorage
+		if (next !== prev) {
+			window.localStorage.setItem("themeMode", currentmode); // 将当前主题的（light or mode）模式状态存储到 localStorage 中
+			window.localStorage.setItem("theme", next.id); // 将当前主题的名称存储到 localStorage 中
+		}
 	});
 
 	useEffect(() => {
-		// 获取当前主题的 light or dark 模式
-		const m = molecule.colorTheme.getColorThemeMode();
-		setCurrentMode(m);
-	}, [currentMode]);
+		setCurrentMode(mode);
+		molecule.colorTheme.reload(); // 重新加载主题
+	}, [mode]);
 
 	return (
 		<QueryClientProvider client={queryClient}>
@@ -53,8 +72,16 @@ const App = () => {
 						Modal: {
 							wireframe: true, // 对话框：开启线框风格
 						},
+						Tree: {
+							colorBgContainer:
+								molecule.colorTheme.getColorTheme().colors?.[
+									"sideBar.background"
+								],
+						},
 					},
-					token: { fontSize: 13 }, // 字体大小：默认13px
+					token: {
+						fontSize: 13,
+					}, // 字体大小：默认13px
 				}}
 			>
 				<MessageApp>

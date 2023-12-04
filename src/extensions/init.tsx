@@ -7,13 +7,6 @@ import { EditorEntry } from "../pages/EditorEntry";
 import { dataDevActivityBar } from "./dataDev/base";
 import { MoreActivityBar } from "./more/base";
 
-const initTheme = () => {
-	// 设置主题
-	molecule.colorTheme.setTheme("One Dark Pro");
-	// 将当前主题的（light or mode）模式状态存储到 localStorage 中
-	window.localStorage.setItem("theme", molecule.colorTheme.getColorThemeMode());
-};
-
 const initEntry = () => {
 	// 设置编辑器的入口页
 	molecule.editor.setEntry(<EditorEntry />);
@@ -76,7 +69,6 @@ export const InitSomethingExtension: IExtension = {
 		initEntry(); // 初始化编辑器入口页
 		initActive(); // 初始化活动栏
 		initMenuBar(); // 初始化菜单栏
-		initTheme(); // 初始化主题
 	},
 
 	dispose(extensionCtx: IExtensionService): void {

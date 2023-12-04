@@ -134,10 +134,8 @@ export const DTTree = () => {
 		<Dropdown menu={{ items }} trigger={["contextMenu"]}>
 			<div
 				style={{
-					// color: colorTextTertiary,
-					// background: colorBgLayout,
-					// background:
-					// 	molecule.colorTheme.getColorTheme().colors?.["menu.background"],
+					background:
+						molecule.colorTheme.getColorTheme().colors?.["sideBar.background"],
 					height: "100vh",
 					lineHeight: "100%",
 				}}
@@ -149,12 +147,6 @@ export const DTTree = () => {
 						multiple
 						defaultExpandAll
 						treeData={data}
-						style={{
-							background:
-								molecule.colorTheme.getColorTheme().colors?.[
-									"sideBar.background"
-								],
-						}}
 						onClick={handleOnSelect}
 						onRightClick={({ event, node }) => {
 							setSelectedTreeData(node); // 设置选中的数据
