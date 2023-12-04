@@ -37,6 +37,8 @@ export const MoveModal = NiceModal.create(({ data }: any) => {
 			destroyOnClose
 			width="40%"
 			title="移动"
+			okText="确定"
+			cancelText="取消"
 			maskClosable={false}
 			open={modal.visible}
 			onOk={modal.remove}

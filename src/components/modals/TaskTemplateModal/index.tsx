@@ -13,6 +13,8 @@ export const TaskTemplateModal = NiceModal.create(() => {
 			destroyOnClose
 			width="40%"
 			title="新建任务模板"
+			okText="确定"
+			cancelText="取消"
 			maskClosable={false}
 			open={modal.visible}
 			onOk={modal.remove}

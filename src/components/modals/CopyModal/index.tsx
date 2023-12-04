@@ -36,6 +36,8 @@ export const CopyModal = NiceModal.create(({ data }: any) => {
 			destroyOnClose
 			width="40%"
 			title="复制"
+			okText="确定"
+			cancelText="取消"
 			maskClosable={false}
 			open={modal.visible}
 			onOk={modal.remove}
