@@ -3,15 +3,23 @@ import NiceModal from "@ebay/nice-modal-react";
 import { useMount } from "ahooks";
 import { App, Button, Dropdown, MenuProps } from "antd";
 import { useQueryClient } from "react-query";
+import { useStore } from "../../stores/useStore";
 import { CreateSubdirModal } from "../modals/CreateSubdirModal";
 
 export const MenuDropdown = () => {
 	const { message } = App.useApp();
 	const client = useQueryClient();
 
+	const { setExpandedKeys, setAutoExpandParent } = useStore();
+
 	useMount(() => {
 		NiceModal.register("CreateSubdirModal", CreateSubdirModal);
 	});
+
+	const onClick = (expandedKeysValue: React.Key[]) => {
+		setExpandedKeys(expandedKeysValue);
+		setAutoExpandParent(true);
+	};
 
 	const items: MenuProps["items"] = [
 		{
@@ -26,6 +34,7 @@ export const MenuDropdown = () => {
 		{
 			key: "fold_file",
 			label: "收起所有文件夹",
+			onClick: () => onClick([]),
 		},
 		{
 			key: "refresh",
@@ -51,6 +60,7 @@ export const MenuDropdown = () => {
 					),
 		},
 	];
+
 	return (
 		<Dropdown menu={{ items }}>
 			<Button type="text" shape="circle" icon={<MoreOutlined />}></Button>

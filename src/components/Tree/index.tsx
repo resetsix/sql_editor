@@ -23,7 +23,14 @@ export const DTTree = () => {
 	const { message } = App.useApp();
 	const client = useQueryClient();
 
-	const { selectedTreeData, setSelectedTreeData } = useStore();
+	const {
+		expandedKeys,
+		setExpandedKeys,
+		autoExpandParent,
+		setAutoExpandParent,
+		selectedTreeData,
+		setSelectedTreeData,
+	} = useStore();
 
 	// 获取数据
 
@@ -123,13 +130,17 @@ export const DTTree = () => {
 			  ];
 
 	// 点击事件
-	const handleOnSelect = (e: any, record: any) => {
+	const onSelect = (e: any, record: any) => {
 		if (!record.children) {
 			const tabData = transformToEditorTab(record);
 			molecule.editor.open(tabData);
 		}
 	};
 
+	const onExpand = (expandedKeysValue: React.Key[]) => {
+		setExpandedKeys(expandedKeysValue);
+		setAutoExpandParent(false);
+	};
 	return (
 		<Dropdown menu={{ items }} trigger={["contextMenu"]}>
 			<div
@@ -145,9 +156,12 @@ export const DTTree = () => {
 				) : (
 					<DirectoryTree
 						multiple
-						defaultExpandAll
-						treeData={data}
-						onClick={handleOnSelect}
+						defaultExpandAll // 默认展开所有
+						treeData={data} // 文件树 data 数据
+						onExpand={onExpand} // 展开事件
+						expandedKeys={expandedKeys} // 展开的key
+						autoExpandParent={autoExpandParent} // 自动展开父节点
+						onClick={onSelect} // 点击事件
 						onRightClick={({ event, node }) => {
 							setSelectedTreeData(node); // 设置选中的数据
 						}}
